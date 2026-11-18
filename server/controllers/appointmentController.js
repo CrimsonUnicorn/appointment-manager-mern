@@ -61,7 +61,7 @@ const updateAppointmentStatus = async (req, res) => {
         const updated = await Appointment.findByIdAndUpdate(
             req.params.id,
             { status },
-            { new: true, runValidators: true }
+            { returnDocument: 'after', runValidators: true }
         );
 
         if (!updated) {
